@@ -21,7 +21,7 @@ function Listing() {
     getDataFromBackend();
   }, []);
 
-  const deleteComponent = () => {
+  const deleteComponent = (id) => {
     fetch("http://localhost:5000/component/delete/" + id, {
       method: "DELETE",
     }).then((res) => {
