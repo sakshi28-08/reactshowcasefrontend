@@ -71,7 +71,7 @@ const Addcomponent = () => {
               <div className="col-md-3">
                 <div className="card">
                   <div className="card-body">
-                    <h3 className="text-muted text-center">Form</h3>
+                    <h3 className="text-muted text-center">Add Components</h3>
                     <hr />
       
                     <Formik
@@ -128,7 +128,7 @@ const Addcomponent = () => {
                             variant="contained"
                             sx={{ mt: 5 }}
                           >
-                            Click
+                            Add new component
                           </Button>
                         </form>
                       )}
