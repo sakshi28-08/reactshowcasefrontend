@@ -10,7 +10,7 @@ const Signup = () => {
     console.log("Form submitted!!");
     console.log(formdata);
 
-    fetch('http://localhost:5000/user/authenticate', {
+    fetch('http://localhost:5000/user/add', {
       method: 'POST',
       body : JSON.stringify(formdata),
       headers: {
@@ -55,9 +55,14 @@ const Signup = () => {
               <hr />
 
               <Formik
-                initialValues={{ email: "", password: "" }} //specifying initial value for form
+                initialValues={{
+                name  : "",  
+                username  : "",  
+                email: "",
+                  password: "",
+                  cpassword: "", }} //specifying initial value for form
                 onSubmit={handleFormSubmit} // function to handle form submission
-                validationSchema={loginSchema}
+                // validationSchema={loginSchema}
               >
                 {({ values, handleChange, handleSubmit, errors, touched }) => (
                   <form onSubmit={handleSubmit}>
@@ -113,11 +118,11 @@ const Signup = () => {
                       type="Confirm password"
                       label="Confirm Password"
                       placeholder="Enter your Password again.."
-                      id="password"
-                      value={values.password}
+                      id="cpassword"
+                      value={values.cpassword}
                       onChange={handleChange}
-                      error={Boolean(errors.password) && touched.password}
-                      helperText={touched.password ? errors.password : ""}
+                      error={Boolean(errors.cpassword) && touched.cpassword}
+                      helperText={touched.cpassword ? errors.cpassword : ""}
                     />
 
                     <Button
