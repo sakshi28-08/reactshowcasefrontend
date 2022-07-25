@@ -1,122 +1,138 @@
+import { TextField, Button } from "@mui/material";
 import { Formik } from "formik";
 import React from "react";
 import Swal from "sweetalert2";
-import {
-  FormControl,
-  FormLabel,
-  RadioGroup,
-  Radio,
-  FormControlLabel,
-} from "@mui/material";
+import * as Yup from "yup";
 
 const Signup = () => {
+  
   const handleFormSubmit = (formdata) => {
+    console.log("Form submitted!!");
     console.log(formdata);
 
-    // 1. address
-    // 2. request method
-    // 3. data to be sent
-    // 4. data format
-
-    fetch("http://localhost:5000/user/add", {
-      method: "POST",
-      body: JSON.stringify(formdata),
+    fetch('http://localhost:5000/user/authenticate', {
+      method: 'POST',
+      body : JSON.stringify(formdata),
       headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((res) => {
-      console.log(res.status);
-      if (res.status === 200) {
-        Swal.fire({
-          icon: "success",
-          title: "Success",
-          text: "Registration Successful",
-        });
-      } else {
-        Swal.fire({
-          icon: "error",
-          title: "Oops!!",
-          text: "Some Error Occured",
-        });
+        'Content-Type': 'application/json'
       }
-    });
+    }).then(res => {
+      if(res.status === 200){
+        Swal.fire({
+          icon : 'success',
+          title : 'Success',
+          text : 'signup Successful'
+        })
+        
+
+      }else if(res.status === 300){
+        Swal.fire({
+          icon : 'error',
+          title : 'Oops!!',
+          text : 'Invalid Credentials'
+        })
+      }
+    })
+
   };
 
+
+  // for validation
+  const loginSchema = Yup.object().shape({
+    email: Yup.string().email("Invalid email").required("Required"),
+    password: Yup.string()
+      .min(4, "Password should be longer than 4 characters")
+      .required("Required"),
+  });
+
   return (
-    <div className="container mt-5">
-      <div className="card">
-        <div className="card-body">
-          <h3 className="text-muted text-center">Signup Form</h3>
+    <div style={{ background: "#eee", height: "100vh" }}>
+      <div className="row h-100 justify-content-center align-items-center">
+        <div className="col-md-3">
+          <div className="card">
+            <div className="card-body">
+              <h3 className="text-muted text-center">Register your account</h3>
+              <hr />
 
-          <Formik
-            initialValues={{
-              name: "",
-              email: "",
-              password: "",
-              gender: "",
-            }}
-            onSubmit={handleFormSubmit}
-          >
-            {({ values, handleSubmit, handleChange }) => (
-              <form onSubmit={handleSubmit}>
-                <label className="mt-4">name</label>
-                <input
-                  className="form-control"
-                  placeholder="name"
-                  value={values.name}
-                  id="name"
-                  onChange={handleChange}
-                />
-                <label className="mt-4">Email</label>
-                <input
-                  className="form-control"
-                  placeholder="Email Address"
-                  value={values.email}
-                  id="email"
-                  onChange={handleChange}
-                />
-                <label className="mt-4">Password</label>
-                <input
-                  className="form-control"
-                  placeholder="Secret Password"
-                  type="password"
-                  value={values.password}
-                  id="password"
-                  onChange={handleChange}
-                />
+              <Formik
+                initialValues={{ email: "", password: "" }} //specifying initial value for form
+                onSubmit={handleFormSubmit} // function to handle form submission
+                validationSchema={loginSchema}
+              >
+                {({ values, handleChange, handleSubmit, errors, touched }) => (
+                  <form onSubmit={handleSubmit}>
+                     <TextField
+                      sx={{ mt: 3 }}
+                      fullWidth
+                      label="Name"
+                      placeholder="Enter your full name.."
+                      id="name"
+                      value={values.name}
+                      onChange={handleChange}
+                      error={Boolean(errors.name) && touched.name}
+                      helperText={touched.name ? errors.name : ""}
+                    />
+                     <TextField
+                      sx={{ mt: 3 }}
+                      fullWidth
+                      label="Username"
+                      placeholder="Enter a username.."
+                      id="username"
+                      value={values.username}
+                      onChange={handleChange}
+                      error={Boolean(errors.username) && touched.username}
+                      helperText={touched.username ? errors.username : ""}
+                    />
+                    <TextField
+                      sx={{ mt: 3 }}
+                      fullWidth
+                      label="Email"
+                      placeholder="Email Address"
+                      id="email"
+                      value={values.email}
+                      onChange={handleChange}
+                      error={Boolean(errors.email) && touched.email}
+                      helperText={touched.email ? errors.email : ""}
+                    />
 
-                <FormControl>
-                  <FormLabel id="demo-radio-buttons-group-label">
-                    Gender
-                  </FormLabel>
-                  <RadioGroup
-                    aria-labelledby="demo-radio-buttons-group-label"
-                    value={values.gender}
-                    name="gender"
-                    onChange={handleChange}
-                  >
-                    <FormControlLabel
-                      value="female"
-                      control={<Radio />}
-                      label="Female"
+                    <TextField
+                      sx={{ mt: 3 }}
+                      fullWidth
+                      type="password"
+                      label="Password"
+                      placeholder="Enter your Password..."
+                      id="password"
+                      value={values.password}
+                      onChange={handleChange}
+                      error={Boolean(errors.password) && touched.password}
+                      helperText={touched.password ? errors.password : ""}
                     />
-                    <FormControlLabel
-                      value="male"
-                      control={<Radio />}
-                      label="Male"
+                    <TextField
+                      sx={{ mt: 3 }}
+                      fullWidth
+                      type="Confirm password"
+                      label="Confirm Password"
+                      placeholder="Enter your Password again.."
+                      id="password"
+                      value={values.password}
+                      onChange={handleChange}
+                      error={Boolean(errors.password) && touched.password}
+                      helperText={touched.password ? errors.password : ""}
                     />
-                    <FormControlLabel
-                      value="other"
-                      control={<Radio />}
-                      label="Other"
-                    />
-                  </RadioGroup>
-                </FormControl>
 
-                <button className="btn btn-primary mt-5">Submit</button>
-              </form>
-            )}
-          </Formik>
+                    <Button
+                      type="Sign up"
+                      fullWidth
+                      variant="contained"
+                      sx={{ mt: 5 }}
+                    >
+                      Sign up
+                    </Button>
+                  </form>
+                )}
+              </Formik>
+            </div>
+          </div>
         </div>
       </div>
     </div>

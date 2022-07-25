@@ -11,7 +11,7 @@ const Addcomponent = () => {
           console.log("Form submitted!!");
           console.log(formdata);
       
-          fetch('http://localhost:5000/user/authenticate', {
+          fetch('http://localhost:5000/component/add', {
             method: 'POST',
             body : JSON.stringify(formdata),
             headers: {
@@ -45,6 +45,25 @@ const Addcomponent = () => {
             .min(4, "Password should be longer than 4 characters")
             .required("Required"),
         });
+
+
+        const uploadFile = async (e) => {
+          const file = e.target.files[0];
+          const fd = new FormData();
+
+          fd.append('file', file);
+
+          const response = await fetch('http://localhost:5000/util/uploadfile',
+          {
+            method: 'POST',
+            body : fd
+          })
+
+          if(response.status == 200){
+            console.log('file upload success');
+          }
+
+        }
       
         return (
           <div style={{ background: "#eee", height: "100vh" }}>
@@ -77,7 +96,7 @@ const Addcomponent = () => {
                           <TextField
                             sx={{ mt: 3 }}
                             fullWidth
-                            type="description"
+                            type="text"
                             label="description"
                             placeholder="description"
                             id="description"
@@ -89,7 +108,9 @@ const Addcomponent = () => {
                           <TextField
                             sx={{ mt: 3 }}
                             fullWidth
-                            type="code"
+                            multiline
+                            rows={5}
+                            type="text"
                             label="code"
                             placeholder="code"
                             id="code"
@@ -98,6 +119,8 @@ const Addcomponent = () => {
                             error={Boolean(errors.code) && touched.code}
                             helperText={touched.code ? errors.code : ""}
                           />
+
+                          <input type="file" onChange={uploadFile} /> 
       
                           <Button
                             type="submit"
