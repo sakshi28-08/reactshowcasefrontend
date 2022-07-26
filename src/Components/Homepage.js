@@ -5,8 +5,9 @@ import { NavLink } from 'react-router-dom'
 const Homepage = () => {
   return (
     <div>
+        
         <section id='header' className='d-flex align-items-center'>
-            <div className='container-fluid nav_bg'>
+            <div className='container-fluid nav_bg' >
                 <div className='row'>
                     
                    
@@ -22,7 +23,7 @@ const Homepage = () => {
                             </div>
                         </div>
                         <div className='col-lg-6 order-1 order-lg-2 header-img'>
-                            <img src="https://unbounce.com/photos/Homepage-Mobile.png.webp" className="zoom-in" alt="home img" />
+                            <img src="https://weboindia.com/wp-content/uploads/2022/03/hire-react-native-developers-in-USA.png" alt="home img" />
                         </div>
                     </div>
                     </div>

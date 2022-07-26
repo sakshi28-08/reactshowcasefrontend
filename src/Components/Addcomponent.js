@@ -60,8 +60,8 @@ const Addcomponent = () => {
     }
   };
 
-<<<<<<< HEAD
-        }
+
+        
       
         return (
           <div style={{ background: "#eee", height: "100vh" }}>
@@ -134,82 +134,10 @@ const Addcomponent = () => {
                   </div>
                 </div>
               </div>
-=======
-  return (
-    <div style={{ background: "#eee", height: "100vh" }}>
-      <div className="row h-100 justify-content-center align-items-center">
-        <div className="col-md-3">
-          <div className="card">
-            <div className="card-body">
-              <h3 className="text-muted text-center">Form</h3>
-              <hr />
-
-              <Formik
-                initialValues={{ title: "", description: "", code: "",thumbnail:"" }} //specifying initial value for form
-                onSubmit={handleFormSubmit} // function to handle form submission
-                validationSchema={loginSchema}
-              >
-                {({ values, handleChange, handleSubmit, errors, touched }) => (
-                  <form onSubmit={handleSubmit}>
-                    <TextField
-                      sx={{ mt: 3 }}
-                      fullWidth
-                      label="title"
-                      placeholder="title"
-                      id="title"
-                      value={values.title}
-                      onChange={handleChange}
-                      error={Boolean(errors.title) && touched.title}
-                      helperText={touched.title ? errors.title : ""}
-                    />
-
-                    <TextField
-                      sx={{ mt: 3 }}
-                      fullWidth
-                      type="text"
-                      label="description"
-                      placeholder="description"
-                      id="description"
-                      value={values.description}
-                      onChange={handleChange}
-                      error={Boolean(errors.description) && touched.description}
-                      helperText={touched.description ? errors.description : ""}
-                    />
-                    <TextField
-                      sx={{ mt: 3 }}
-                      fullWidth
-                      multiline
-                      rows={5}
-                      type="text"
-                      label="code"
-                      placeholder="code"
-                      id="code"
-                      value={values.code}
-                      onChange={handleChange}
-                      error={Boolean(errors.code) && touched.code}
-                      helperText={touched.code ? errors.code : ""}
-                    />
-
-                    <input type="file" onChange={uploadFile} />
-
-                    <Button
-                      type="submit"
-                      fullWidth
-                      variant="contained"
-                      sx={{ mt: 5 }}
-                    >
-                      Click
-                    </Button>
-                  </form>
-                )}
-              </Formik>
->>>>>>> 3c4b61116e009785faf8fcc2c6e15dcbaea2973a
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+              </div>
+              </div>
+        )
+                      }
 
 export default Addcomponent;
+

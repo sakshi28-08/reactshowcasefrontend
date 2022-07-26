@@ -2,9 +2,11 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 
+
 const Aboutus = () => {
   return (
     <div>
+         <div>
         <section id='header' className='d-flex align-items-center'>
             <div className='container-fluid nav_bg'>
                 <div className='row'>
@@ -31,6 +33,8 @@ const Aboutus = () => {
                 </div>
            
         </section>
+    </div>
+  
     </div>
   )
 }
