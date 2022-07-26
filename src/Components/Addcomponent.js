@@ -62,15 +62,19 @@ const Addcomponent = () => {
 
 
         
+        }
       
         return (
           <div style={{ background: "#eee", height: "100vh" }}>
             <div className="row h-100 justify-content-center align-items-center">
               <div className="col-md-3">
+                
                 <div className="card">
+                  
                   <div className="card-body">
                     <h3 className="text-muted text-center">Add Components</h3>
                     <hr />
+                    
       
                     <Formik
                       initialValues={{ title: "", description: "", code: ""}} //specifying initial value for form
@@ -134,10 +138,12 @@ const Addcomponent = () => {
                   </div>
                 </div>
               </div>
+
               </div>
               </div>
+        
         )
-                      }
+
 
 export default Addcomponent;
 
