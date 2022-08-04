@@ -1,10 +1,14 @@
 import { TextField, Button } from "@mui/material";
 import { Formik } from "formik";
 import React, { useState} from "react";
+import c2 from "../images/c2.png";
+import msglogo from "../images/msglogo.png";
+import passwordlogo from "../images/passwordlogo.png";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
+import './Addcomponent.css';
 
-const Addcomponent = () => {
+function Addcomponent() {
   const [thumbnail, setThumbnail] = useState("");
 
   const handleFormSubmit = (formdata) => {
@@ -62,19 +66,22 @@ const Addcomponent = () => {
 
 
         
-        }
+        
       
         return (
-          <div style={{ background: "#eee", height: "100vh" }}>
-            <div className="row h-100 justify-content-center align-items-center">
-              <div className="col-md-3">
-                
-                <div className="card">
-                  
-                  <div className="card-body">
-                    <h3 className="text-muted text-center">Add Components</h3>
-                    <hr />
-                    
+          <div className="main">
+     <div className="sub-main">
+       <div>
+         <div className="imgs">
+           <div className="container-image">
+             <img src={c2} alt="profile" className="profile"/>
+
+           </div>
+
+
+         </div>
+         <div>
+           <h1>Addcomponent Page</h1>
       
                     <Formik
                       initialValues={{ title: "", description: "", code: ""}} //specifying initial value for form
@@ -83,55 +90,25 @@ const Addcomponent = () => {
                     >
                       {({ values, handleChange, handleSubmit, errors, touched }) => (
                         <form onSubmit={handleSubmit}>
-                          <TextField
-                            sx={{ mt: 3 }}
-                            fullWidth
-                            label="title"
-                            placeholder="title"
-                            id="title"
-                            value={values.title}
-                            onChange={handleChange}
-                            error={Boolean(errors.title) && touched.title}
-                            helperText={touched.title ? errors.title : ""}
-                          />
-      
-                          <TextField
-                            sx={{ mt: 3 }}
-                            fullWidth
-                            type="text"
-                            label="description"
-                            placeholder="description"
-                            id="description"
-                            value={values.description}
-                            onChange={handleChange}
-                            error={Boolean(errors.description) && touched.description}
-                            helperText={touched.description ? errors.description : ""}
-                          />
-                          <TextField
-                            sx={{ mt: 3 }}
-                            fullWidth
-                            multiline
-                            rows={5}
-                            type="text"
-                            label="code"
-                            placeholder="code"
-                            id="code"
-                            value={values.code}
-                            onChange={handleChange}
-                            error={Boolean(errors.code) && touched.code}
-                            helperText={touched.code ? errors.code : ""}
-                          />
+                         
+                          
+                          <div className="second-input">
+             <img src={passwordlogo} alt="password" className="email"/>
+             <input type="password" placeholder="title" className="name"/>
+           </div>
+           <div className="second-input">
+             <img src={passwordlogo} alt="password" className="email"/>
+             <input type="password" placeholder="description" className="name"/>
+           </div>
+           <div className="second-input">
+             <img src={passwordlogo} alt="password" className="email"/>
+             <input type="password" placeholder="code" className="name"/>
+           </div>
+           <input className="the" type="file" onChange={uploadFile} /> 
 
-                          <input type="file" onChange={uploadFile} /> 
-      
-                          <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ mt: 5 }}
-                          >
-                            Add new component
-                          </Button>
+           <div className="login-button">
+          <button>Add new component</button>
+          </div>
                         </form>
                       )}
                     </Formik>
@@ -140,9 +117,11 @@ const Addcomponent = () => {
               </div>
 
               </div>
-              </div>
-        
+              
         )
+                      }
+        
+                      
 
 
 export default Addcomponent;

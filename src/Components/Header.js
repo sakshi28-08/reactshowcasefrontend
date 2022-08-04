@@ -39,7 +39,7 @@ const Header = () => {
 
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <NavLink activeClassName="menu_active"
+          <NavLink activeclassName="menu_active"
           exact
            className="nav-link active" aria-current="page" to="/home">Home</NavLink>
         </li>
