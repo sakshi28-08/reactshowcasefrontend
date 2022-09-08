@@ -60,11 +60,11 @@ function Signup() {
            <h1>Signup Page</h1>
            <Formik
                 initialValues={{
-                name  : "",  
-                username  : "",  
+                firstname  : "",  
+                lastname  : "",  
                 email: "",
                   password: "",
-                  cpassword: "", }} //specifying initial value for form
+                   }} //specifying initial value for form
                 onSubmit={handleFormSubmit} // function to handle form submission
                 // validationSchema={loginSchema}
               >

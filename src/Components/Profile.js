@@ -3,7 +3,7 @@ import { Formik } from "formik";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
 import './Profile.css';
-import c4 from "../images/c4.webp";
+import myimg from "../images/myimg.jpeg";
 import msglogo from "../images/msglogo.png";
 import passwordlogo from "../images/passwordlogo.png";
 function Signup() {
@@ -50,7 +50,7 @@ function Signup() {
        <div>
          <div className="imgs">
            <div className="container-image">
-             <img src={c4} alt="profile" className="profile"/>
+             <img src={myimg} alt="profile" className="profile"/>
 
            </div>
 
@@ -61,33 +61,34 @@ function Signup() {
            <Formik
                 initialValues={{
                 name  : "",  
-                username  : "",  
+                username  : "", 
+                pnumber : "", 
                 email: "",
-                  password: "",
-                  cpassword: "", }} //specifying initial value for form
+                  dmessage: "",
+                  }} //specifying initial value for form
                 onSubmit={handleFormSubmit} // function to handle form submission
                 // validationSchema={loginSchema}
               >
                  {({ values, handleChange, handleSubmit, errors, touched }) => (
                   <form onSubmit={handleSubmit}>
            <div>
-             <img src={msglogo} alt="msglogo" className="email"/>
+             
              <input type="text" placeholder="Name" className="name"/>
            </div>
            <div className="second-input">
-             <img src={passwordlogo} alt="password" className="email"/>
+             
              <input type="password" placeholder="User name" className="name"/>
            </div>
            <div className="second-input">
-             <img src={passwordlogo} alt="password" className="email"/>
+             
              <input type="password" placeholder="Phone number" className="name"/>
            </div>
            <div className="second-input">
-             <img src={passwordlogo} alt="password" className="email"/>
+             
              <input type="password" placeholder="email" className="name"/>
            </div>
            <div className="second-input">
-             <img src={passwordlogo} alt="password" className="email"/>
+            
              <input type="password" placeholder="Drop Message..." className="name"/>
            </div>
           <div className="login-button">

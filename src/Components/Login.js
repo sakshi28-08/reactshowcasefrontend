@@ -13,7 +13,7 @@ function Login() {
       console.log("Form submitted!!");
       console.log(formdata);
   
-      fetch('http://localhost:5000/user/add', {
+      fetch('http://localhost:5000/user/authenticate', {
         method: 'POST',
         body : JSON.stringify(formdata),
         headers: {
@@ -60,11 +60,9 @@ function Login() {
            <h1>Login Page</h1>
            <Formik
                 initialValues={{
-                name  : "",  
-                username  : "",  
                 email: "",
                   password: "",
-                  cpassword: "", }} //specifying initial value for form
+                   }} //specifying initial value for form
                 onSubmit={handleFormSubmit} // function to handle form submission
                 // validationSchema={loginSchema}
               >
