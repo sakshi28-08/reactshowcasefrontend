@@ -37,6 +37,7 @@ function App() {
             <Route element={<Homepage/>} path="home" />
             <Route element={<Contact/>} path="contact" />
             <Route element={<Profile/>} path="profile" />
+            <Route element={<LoginForm/>} path="LoginForm" />
             
            
             

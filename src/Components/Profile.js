@@ -3,10 +3,10 @@ import { Formik } from "formik";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
 import './Profile.css';
-import myimg from "../images/myimg.jpeg";
-import msglogo from "../images/msglogo.png";
-import passwordlogo from "../images/passwordlogo.png";
-function Signup() {
+
+
+
+function Profile() {
   
   
     const handleFormSubmit = (formdata) => {
@@ -50,7 +50,7 @@ function Signup() {
        <div>
          <div className="imgs">
            <div className="container-image">
-             <img src={myimg} alt="profile" className="profile"/>
+             
 
            </div>
 
@@ -112,5 +112,5 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Profile;
 

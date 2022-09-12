@@ -69,11 +69,11 @@ function Login() {
                  {({ values, handleChange, handleSubmit, errors, touched }) => (
                   <form onSubmit={handleSubmit}>
            <div>
-             <img src={msglogo} alt="msglogo" className="email"/>
+            
              <input type="text" placeholder="email" className="name"/>
            </div>
            <div className="second-input">
-             <img src={passwordlogo} alt="password" className="email"/>
+             
              <input type="password" placeholder="password" className="name"/>
            </div>
           <div className="login-button">
