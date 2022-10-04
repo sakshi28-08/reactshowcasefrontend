@@ -1,12 +1,8 @@
 import { TextField, Button } from "@mui/material";
 import { Formik } from "formik";
-import React, { useState} from "react";
-import c2 from "../images/c2.png";
-import msglogo from "../images/msglogo.png";
-import passwordlogo from "../images/passwordlogo.png";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import * as Yup from "yup";
-import './Addcomponent.css';
 
 function Addcomponent() {
   const [thumbnail, setThumbnail] = useState("");
@@ -64,65 +60,114 @@ function Addcomponent() {
     }
   };
 
-
-        
-        
-      
-        return (
-          <div className="main">
-     <div className="sub-main">
-       <div>
-         <div className="imgs">
-           <div className="container-image">
-             <img src={c2} alt="profile" className="profile"/>
-
-           </div>
-
-
-         </div>
-         <div>
-           <h1>Addcomponent Page</h1>
-      
-                    <Formik
-                      initialValues={{ title: "", description: "", code: ""}} //specifying initial value for form
-                      onSubmit={handleFormSubmit} // function to handle form submission
-                      validationSchema={loginSchema}
-                    >
-                      {({ values, handleChange, handleSubmit, errors, touched }) => (
-                        <form onSubmit={handleSubmit}>
-                         
-                          
-                          <div className="second-input">
-             <img src={passwordlogo} alt="password" className="email"/>
-             <input type="password" placeholder="title" className="name"/>
-           </div>
-           <div className="second-input">
-             <img src={passwordlogo} alt="password" className="email"/>
-             <input type="password" placeholder="description" className="name"/>
-           </div>
-           <div className="second-input">
-             <img src={passwordlogo} alt="password" className="email"/>
-             <input type="password" placeholder="code" className="name"/>
-           </div>
-           <input className="the" type="file" onChange={uploadFile} /> 
-
-           <div className="login-button">
-          <button>Add new component</button>
+  return (
+    <div className="mains">
+      <div className="sub-mains">
+        <div>
+          <div>
+            <Formik
+              initialValues={{ title: "", description: "", code: "" }} //specifying initial value for form
+              onSubmit={handleFormSubmit} // function to handle form submission
+              // validationSchema={loginSchema}
+            >
+              {({ values, handleChange, handleSubmit, errors, touched }) => (
+                <form onSubmit={handleSubmit}>
+                  <section
+                    className="vh-100"
+                    style={{ backgroundColor: "#eee" }}
+                  >
+                    <div className="container h-100">
+                      <div className="row d-flex justify-content-center align-items-center h-100">
+                        <div className="col-xl-9">
+                          <h1 className="text-black mb-4">Add Component</h1>
+                          <div className="card" style={{ borderRadius: 15 }}>
+                            <div className="card-body">
+                              <div className="row align-items-center pt-4 pb-3">
+                                <div className="col-md-3 ps-5">
+                                  <h6 className="mb-0">title</h6>
+                                </div>
+                                <div className="col-md-9 pe-5">
+                                  <input
+                                    type="text"
+                                    className="form-control form-control-lg"
+                                    name="title"
+                                    onChange={handleChange}
+                                    value={values.title}
+                                  />
+                                </div>
+                              </div>
+                              <hr className="mx-n3" />
+                              <div className="row align-items-center py-3">
+                                <div className="col-md-3 ps-5">
+                                  <h6 className="mb-0">description</h6>
+                                </div>
+                                <div className="col-md-9 pe-5">
+                                  <input
+                                    type="text"
+                                    className="form-control form-control-lg"
+                                    name="description"
+                                    onChange={handleChange}
+                                    value={values.description}
+                                    placeholder="type.."
+                                  />
+                                </div>
+                              </div>
+                              <hr className="mx-n3" />
+                              <div className="row align-items-center py-3">
+                                <div className="col-md-3 ps-5">
+                                  <h6 className="mb-0">code</h6>
+                                </div>
+                                <div className="col-md-9 pe-5">
+                                  <textarea
+                                    className="form-control"
+                                    rows={3}
+                                    placeholder="type here..."
+                                    name="code"
+                                    onChange={handleChange}
+                                    value={values.code}
+                                  />
+                                </div>
+                              </div>
+                              <hr className="mx-n3" />
+                              <div className="row align-items-center py-3">
+                                <div className="col-md-3 ps-5">
+                                  <h6 className="mb-0">Upload file</h6>
+                                </div>
+                                <div className="col-md-9 pe-5">
+                                  <input
+                                    className="form-control form-control-lg"
+                                    type="file"
+                                    onChange={uploadFile}
+                                  />
+                                  <div className="small text-muted mt-2">
+                                    Upload your any other relevant file. Max
+                                    file size 50 MB
+                                  </div>
+                                </div>
+                              </div>
+                              <hr className="mx-n3" />
+                              <div className="px-5 py-4">
+                                <button
+                                  type="submit"
+                                  className="btn btn-primary btn-lg"
+                                >
+                                  Addcomponent
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+                </form>
+              )}
+            </Formik>
           </div>
-                        </form>
-                      )}
-                    </Formik>
-                  </div>
-                </div>
-              </div>
-
-              </div>
-              
-        )
-                      }
-        
-                      
-
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default Addcomponent;
-

@@ -53,19 +53,18 @@ const Header = () => {
           <NavLink className="nav-link" to="/addcomponent">Addcomponent</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/signin">Login</NavLink>
+          <NavLink className="nav-link" to="/loginform">Login</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="/listing">Listing</NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/profile">Profile</NavLink>
-        </li>
+       
         <li className="nav-item">
           <NavLink className="nav-link" to="/signup">Signup</NavLink>
         </li>
+        
         <li className="nav-item">
-          <NavLink className="nav-link" to="/contact">Viewer</NavLink>
+          <NavLink className="nav-link" to="/manageuser">ManageUser</NavLink>
         </li>
         
      

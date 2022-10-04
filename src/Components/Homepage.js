@@ -23,7 +23,7 @@ const Homepage = () => {
                             </div>
                         </div>
                         <div className='col-lg-6 order-1 order-lg-2 header-img'>
-                            <img src="https://weboindia.com/wp-content/uploads/2022/03/hire-react-native-developers-in-USA.png" alt="home img" />
+                            <img src="https://weboindia.com/wp-content/uploads/2022/03/hire-react-native-developers-in-USA.png"  />
                         </div>
                     </div>
                     </div>

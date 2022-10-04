@@ -29,7 +29,7 @@ const Aboutus = () => {
                             </div>
                         </div>
                         <div className='col-lg-6 order-1 order-lg-2 header-img'>
-                            <img src={Loginproject} className="zoom-in" alt="home img" height="500px" />
+                            <img src={Loginproject} className="animation: float 6s ease-in-out infinite" alt="home img" height="500px" />
                         </div>
                     </div>
                     </div>
